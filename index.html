@@ -6,7 +6,7 @@
     <title>Josh Jestine | AI Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --white: #ffffff;
@@ -31,7 +31,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: var(--white);
             color: var(--black);
             overflow-x: hidden;
@@ -342,8 +342,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 120px;
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-image-inner svg {
+            width: 60%;
+            height: 60%;
+            color: #667eea;
         }
 
         .about-content h3 {
@@ -439,8 +444,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             margin-bottom: 24px;
+        }
+
+        .edu-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
         }
 
         .edu-card h4 {
@@ -613,7 +623,6 @@
 
         .project-visual {
             aspect-ratio: 16/10;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border-radius: 24px;
             display: flex;
             align-items: center;
@@ -640,14 +649,55 @@
             opacity: 1;
         }
 
-        .project-icon {
-            font-size: 80px;
+        .project-visual svg {
+            width: 120px;
+            height: 120px;
             position: relative;
             z-index: 1;
         }
 
+        .project-visual.f1 {
+            background: linear-gradient(135deg, #e10600 0%, #1e1e1e 100%);
+        }
+
+        .project-visual.f1 svg {
+            color: white;
+        }
+
+        .project-visual.finance {
+            background: linear-gradient(135deg, #00d09c 0%, #1a1a2e 100%);
+        }
+
+        .project-visual.finance svg {
+            color: white;
+        }
+
+        .project-visual.medical {
+            background: linear-gradient(135deg, #00b4d8 0%, #1a1a2e 100%);
+        }
+
+        .project-visual.medical svg {
+            color: white;
+        }
+
+        .project-visual.pathfinder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-visual.pathfinder svg {
+            color: white;
+        }
+
+        .project-visual.music {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-visual.music svg {
+            color: white;
+        }
+
         .project-info h3 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 700;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
@@ -689,7 +739,7 @@
         }
 
         .project-stat-value {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             background: linear-gradient(135deg, #64d2ff, #5e5ce6);
             -webkit-background-clip: text;
@@ -701,6 +751,31 @@
             font-size: 13px;
             color: rgba(255, 255, 255, 0.5);
             margin-top: 4px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
+        }
+
+        .project-link svg {
+            width: 20px;
+            height: 20px;
         }
 
         /* Skills Section */
@@ -775,8 +850,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             margin-bottom: 24px;
+        }
+
+        .skill-category-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
         }
 
         .skill-category h4 {
@@ -1055,7 +1135,11 @@
     <section class="about" id="about">
         <div class="about-grid">
             <div class="about-image reveal">
-                <div class="about-image-inner">👨‍💻</div>
+                <div class="about-image-inner">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+                    </svg>
+                </div>
             </div>
             <div class="about-content reveal">
                 <h3>Building the Future with Artificial Intelligence</h3>
@@ -1099,7 +1183,11 @@
         </div>
         <div class="education-cards">
             <div class="edu-card reveal">
-                <div class="edu-icon">🎓</div>
+                <div class="edu-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+                    </svg>
+                </div>
                 <h4>Master of Science in Artificial Intelligence</h4>
                 <div class="school">Northeastern University, Boston</div>
                 <div class="details">
@@ -1109,7 +1197,11 @@
                 <span class="edu-badge">Expected May 2026</span>
             </div>
             <div class="edu-card reveal">
-                <div class="edu-icon">🏛️</div>
+                <div class="edu-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+                    </svg>
+                </div>
                 <h4>Bachelor of Engineering in IT</h4>
                 <div class="school">University of Mumbai</div>
                 <div class="details">
@@ -1172,9 +1264,154 @@
             </p>
         </div>
         <div class="project-showcase">
+            <!-- F1 Race Winner Predictor -->
             <div class="project-card reveal">
-                <div class="project-visual">
-                    <div class="project-icon">🤖</div>
+                <div class="project-visual f1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5"/>
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>F1 Race Winner Predictor</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LightGBM</span>
+                        <span class="tech-tag">FastF1</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                    <p>
+                        Lightweight F1 race winner prediction model using FastF1 and LightGBM. 
+                        Trains on historical race data to predict win probabilities based on 
+                        qualifying results, driver form, and team performance.
+                    </p>
+                    <p>
+                        Features rolling averages, circuit-specific modeling, and team 
+                        performance metrics for accurate race outcome predictions.
+                    </p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-value">70-80%</div>
+                            <div class="project-stat-label">Podium Accuracy</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">50-60%</div>
+                            <div class="project-stat-label">Winner Accuracy</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">~3 min</div>
+                            <div class="project-stat-label">Training Time</div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/JoshJestine/F1-RaceWinnerPredicator" target="_blank" class="project-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- SpendLens / Transaction Aggregator -->
+            <div class="project-card reveal">
+                <div class="project-visual finance">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/>
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>SpendLens - Financial Narrative AI</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Google Gemini</span>
+                        <span class="tech-tag">Pandas</span>
+                    </div>
+                    <p>
+                        Privacy-focused web app that transforms transaction data into 
+                        personalized "Money Narratives". Features mood-adaptive AI storytelling, 
+                        spending analysis, and an interactive chat assistant named Finn.
+                    </p>
+                    <p>
+                        Built with Human-Centered AI principles following Shneiderman's 
+                        Eight Golden Rules. All data processing happens locally for privacy.
+                    </p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-value">100%</div>
+                            <div class="project-stat-label">Privacy-First</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">5</div>
+                            <div class="project-stat-label">Mood Modes</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">HCAI</div>
+                            <div class="project-stat-label">Principles</div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/JoshJestine/Transaction-Aggregator" target="_blank" class="project-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lung Cancer Detection -->
+            <div class="project-card reveal">
+                <div class="project-visual medical">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/>
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>Lung Cancer Detection</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Keras</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                    <p>
+                        ML-powered lung cancer detection system using Convolutional Neural Networks 
+                        to analyze CT scan images. Enables early detection when treatment is 
+                        most likely to be successful.
+                    </p>
+                    <p>
+                        Features advanced image processing techniques including edge detection, 
+                        segmentation, and feature extraction for accurate medical diagnosis assistance.
+                    </p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-value">CNN</div>
+                            <div class="project-stat-label">Architecture</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">CT Scan</div>
+                            <div class="project-stat-label">Image Analysis</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">Live</div>
+                            <div class="project-stat-label">Deployment</div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/JoshJestine/Lung-Cancer-Detection" target="_blank" class="project-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Adaptive Pathfinder Agent -->
+            <div class="project-card reveal">
+                <div class="project-visual pathfinder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+                    </svg>
                 </div>
                 <div class="project-info">
                     <h3>Adaptive Pathfinder Agent</h3>
@@ -1195,7 +1432,7 @@
                     <div class="project-stats">
                         <div class="project-stat">
                             <div class="project-stat-value">83.9%</div>
-                            <div class="project-stat-label">Efficiency Improvement</div>
+                            <div class="project-stat-label">Efficiency Gain</div>
                         </div>
                         <div class="project-stat">
                             <div class="project-stat-value">56→9</div>
@@ -1203,14 +1440,18 @@
                         </div>
                         <div class="project-stat">
                             <div class="project-stat-value">1M+</div>
-                            <div class="project-stat-label">Training Episodes</div>
+                            <div class="project-stat-label">Episodes</div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Deep Cadence Companion -->
             <div class="project-card reveal">
-                <div class="project-visual">
-                    <div class="project-icon">🎹</div>
+                <div class="project-visual music">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"/>
+                    </svg>
                 </div>
                 <div class="project-info">
                     <h3>Deep Cadence Companion</h3>
@@ -1295,7 +1536,11 @@
             </div>
             <div class="skill-categories reveal">
                 <div class="skill-category">
-                    <div class="skill-category-icon">🧠</div>
+                    <div class="skill-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5"/>
+                        </svg>
+                    </div>
                     <h4>Machine Learning & AI</h4>
                     <p>
                         Deep expertise in neural networks, reinforcement learning, 
@@ -1304,7 +1549,11 @@
                     </p>
                 </div>
                 <div class="skill-category">
-                    <div class="skill-category-icon">⚙️</div>
+                    <div class="skill-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/>
+                        </svg>
+                    </div>
                     <h4>Systems & Infrastructure</h4>
                     <p>
                         Proficient in Linux, Docker, AWS, and server configuration. 
@@ -1313,7 +1562,11 @@
                     </p>
                 </div>
                 <div class="skill-category">
-                    <div class="skill-category-icon">🔧</div>
+                    <div class="skill-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+                        </svg>
+                    </div>
                     <h4>Development & Automation</h4>
                     <p>
                         Strong Python scripting, Bash, PowerShell automation. 
@@ -1336,8 +1589,7 @@
             <div class="contact-links">
                 <a href="mailto:joshjestine@outlook.com" class="contact-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
+                        <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
                     </svg>
                     Email Me
                 </a>
@@ -1355,7 +1607,7 @@
                 </a>
                 <a href="tel:+18575767579" class="contact-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
                     </svg>
                     Call Me
                 </a>
@@ -1398,7 +1650,7 @@
         animateCursor();
 
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, .btn, .skill-chip, .edu-card, .skill-category, .project-visual, .contact-link');
+        const hoverElements = document.querySelectorAll('a, button, .btn, .skill-chip, .edu-card, .skill-category, .project-visual, .contact-link, .project-link');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -1449,10 +1701,6 @@
             });
         });
 
-        // Typing effect for hero (optional enhancement)
-        const heroH2 = document.querySelector('.hero h2');
-        const text = heroH2.textContent;
-
         // Interactive skill chips
         const skillChips = document.querySelectorAll('.skill-chip');
         skillChips.forEach(chip => {
@@ -1465,7 +1713,7 @@
         });
 
         // Magnetic button effect
-        const magneticButtons = document.querySelectorAll('.btn, .contact-link');
+        const magneticButtons = document.querySelectorAll('.btn, .contact-link, .project-link');
         magneticButtons.forEach(btn => {
             btn.addEventListener('mousemove', function(e) {
                 const rect = this.getBoundingClientRect();
@@ -1498,30 +1746,6 @@
         }, observerOptions);
 
         sections.forEach(section => sectionObserver.observe(section));
-
-        // Easter egg: Konami code
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > 10) konamiCode.shift();
-            if (konamiCode.join(',') === konamiSequence.join(',')) {
-                document.body.style.animation = 'rainbow 2s linear infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 5000);
-            }
-        });
-
-        // Add rainbow animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
 
         // Smooth counter animation for stats
         const animateValue = (element, start, end, duration) => {
