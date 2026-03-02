@@ -107,10 +107,24 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 120px 20px 80px;
+            padding: 120px 20px 60px;
             position: relative;
             overflow: hidden;
             background: linear-gradient(180deg, var(--white) 0%, var(--gray-light) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 100%);
         }
 
         .hero-content {
@@ -118,6 +132,129 @@
             max-width: 1000px;
             position: relative;
             z-index: 2;
+        }
+
+        /* Hero stats ticker */
+        .hero-ticker {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            margin-top: 64px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 1.2s;
+        }
+
+        .hero-ticker::before,
+        .hero-ticker::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-ticker::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--gray-light) 0%, transparent 100%);
+        }
+
+        .hero-ticker::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--gray-light) 0%, transparent 100%);
+        }
+
+        .ticker-track {
+            display: flex;
+            animation: ticker 25s linear infinite;
+            width: max-content;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 40px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .ticker-value {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--blue), #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ticker-label {
+            font-size: 14px;
+            color: var(--gray-dark);
+            font-weight: 400;
+        }
+
+        .ticker-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gray-dark);
+            opacity: 0.3;
+            flex-shrink: 0;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1.8s;
+        }
+
+        .scroll-indicator span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--gray-dark), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(180deg, transparent, var(--blue), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0% { top: -40px; }
+            100% { top: 40px; }
         }
 
         .hero-label {
@@ -214,57 +351,6 @@
         .btn-secondary:hover {
             background: var(--blue);
             color: white;
-        }
-
-        /* Floating Shapes */
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-        }
-
-        .shape-1 {
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            top: -200px;
-            right: -200px;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .shape-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            bottom: -100px;
-            left: -100px;
-            animation: float 15s ease-in-out infinite reverse;
-        }
-
-        .shape-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            top: 50%;
-            left: 10%;
-            animation: float 18s ease-in-out infinite 2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(30px, -30px) rotate(5deg); }
-            50% { transform: translate(-20px, 20px) rotate(-5deg); }
-            75% { transform: translate(20px, 30px) rotate(3deg); }
         }
 
         @keyframes fadeUp {
@@ -1019,6 +1105,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .scroll-indicator {
+                display: none;
+            }
         }
 
         /* Loading Animation */
@@ -1030,12 +1120,15 @@
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            animation: loaderFadeOut 0.5s ease 1.5s forwards;
         }
 
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
+        @keyframes loaderFadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
         }
 
         .loader-content {
@@ -1105,19 +1198,14 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
+
         <div class="hero-content">
             <span class="hero-label">Available for Opportunities</span>
             <h1>Josh Jestine</h1>
             <h2>AI Engineer & ML Specialist</h2>
             <p class="hero-description">
-                Crafting intelligent systems that learn, adapt, and transform. 
-                Passionate about deep learning, reinforcement learning, and building 
-                AI solutions that make a real-world impact.
+                Building ML systems that work in practice: From predictive maintenance 
+                pipelines to reinforcement learning agents that beat human baselines. 
             </p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
@@ -1128,6 +1216,47 @@
                 </a>
                 <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
+        </div>
+
+        <!-- Stats ticker -->
+        <div class="hero-ticker">
+            <div class="ticker-track">
+                <div class="ticker-item"><span class="ticker-value">72%</span><span class="ticker-label">Prediction Accuracy</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">83.9%</span><span class="ticker-label">Efficiency Gain</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">1M+</span><span class="ticker-label">Training Episodes</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">56→9</span><span class="ticker-label">Steps per Task</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">200+</span><span class="ticker-label">Developers Mentored</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">40+</span><span class="ticker-label">IoT Sensors</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">15+</span><span class="ticker-label">Projects Shipped</span></div>
+                <div class="ticker-dot"></div>
+                <!-- duplicate for seamless loop -->
+                <div class="ticker-item"><span class="ticker-value">72%</span><span class="ticker-label">Prediction Accuracy</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">83.9%</span><span class="ticker-label">Efficiency Gain</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">1M+</span><span class="ticker-label">Training Episodes</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">56→9</span><span class="ticker-label">Steps per Task</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">200+</span><span class="ticker-label">Developers Mentored</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">40+</span><span class="ticker-label">IoT Sensors</span></div>
+                <div class="ticker-dot"></div>
+                <div class="ticker-item"><span class="ticker-value">15+</span><span class="ticker-label">Projects Shipped</span></div>
+                <div class="ticker-dot"></div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -1142,17 +1271,17 @@
                 </div>
             </div>
             <div class="about-content reveal">
-                <h3>Building the Future with Artificial Intelligence</h3>
+                <h3>Engineering ML Systems That Actually Ship</h3>
                 <p>
-                    I'm an AI/ML engineer pursuing my Master's at Northeastern University, 
-                    with a foundation in Information Technology and Cybersecurity from 
+                    I'm an AI/ML engineer with a Master's in Artificial Intelligence from Northeastern University, 
+                    with a background in Information Technology and Cybersecurity from 
                     University of Mumbai.
                 </p>
                 <p>
-                    My journey spans from developing predictive maintenance systems that 
-                    reduce downtime, to training deep reinforcement learning agents that 
-                    outperform human baselines. I'm driven by the challenge of making 
-                    machines truly intelligent.
+                    My work ranges from building predictive maintenance models that cut 
+                    elevator downtime by 26%, to training deep RL agents that reduce task 
+                    completion from 56 steps down to 9. I like working on problems where 
+                    the numbers actually move.
                 </p>
                 <div class="about-stats">
                     <div class="stat">
@@ -1193,8 +1322,10 @@
                 <div class="details">
                     Dean's List Merit Scholarship recipient. Focused on advanced algorithms, 
                     unsupervised machine learning, and AI for human-computer interaction.
+                    <br><br>
+                    <strong style="color: var(--black); font-weight: 500;">Coursework:</strong> Algorithms, Unsupervised ML, Machine Learning, PDP, AI for HCI, NLP & FAI
                 </div>
-                <span class="edu-badge">Expected May 2026</span>
+                <span class="edu-badge">Expected April 2026</span>
             </div>
             <div class="edu-card reveal">
                 <div class="edu-icon">
@@ -1219,7 +1350,7 @@
             <div class="section-label">Experience</div>
             <h2 class="section-title">Professional Journey</h2>
             <p class="section-subtitle">
-                Building real-world AI solutions and leading technical communities
+                Industry internships and technical community leadership
             </p>
         </div>
         <div class="timeline">
@@ -1229,10 +1360,11 @@
                     <div class="company">Express Elevators</div>
                     <div class="date">May 2025 - August 2025</div>
                     <ul>
-                        <li>Built predictive maintenance ML model achieving 72% accuracy in predicting component failures</li>
-                        <li>Automated fault detection using OpenCV, identifying 8 recurring fault patterns</li>
-                        <li>Reduced average wait time by 12% through optimized dispatching algorithms</li>
-                        <li>Decreased elevator downtime from 4.2 to 3.1 hours per incident</li>
+                        <li>Built predictive maintenance ML model achieving 72% accuracy in predicting component failures across 35 elevators</li>
+                        <li>Automated fault detection using OpenCV, identifying 8 recurring fault patterns and saving 12 hours/week of manual log review</li>
+                        <li>Reduced average wait time by 12% through optimized dispatching algorithms across 3 commercial buildings</li>
+                        <li>Built data collection pipeline with Python and MySQL to aggregate sensor data from 40+ IoT devices</li>
+                        <li>Decreased elevator downtime from 4.2 to 3.1 hours per incident through usage analytics and trend reporting</li>
                     </ul>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1246,7 +1378,7 @@
                         <li>Directed national-level hackathon with 200+ participants from 15+ universities</li>
                         <li>Managed $10,000 budget for ML, Cybersecurity, and Cloud Infrastructure tracks</li>
                         <li>Led team of 8 to deliver 5+ technical workshops driving 40% growth in engagement</li>
-                        <li>Designed Deep Learning workshop with PyTorch for 60+ students</li>
+                        <li>Designed and delivered a hands-on Deep Learning workshop using PyTorch for 60+ students, covering image classification with CNNs</li>
                     </ul>
                 </div>
                 <div class="timeline-dot"></div>
@@ -1260,7 +1392,7 @@
             <div class="section-label">Projects</div>
             <h2 class="section-title">Featured Work</h2>
             <p class="section-subtitle">
-                Pushing the boundaries of what's possible with AI
+                Selected projects across ML, computer vision, and data engineering
             </p>
         </div>
         <div class="project-showcase">
@@ -1319,21 +1451,22 @@
                     </svg>
                 </div>
                 <div class="project-info">
-                    <h3>SpendLens - Financial Narrative AI</h3>
+                    <h3>SpendLens</h3>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Streamlit</span>
-                        <span class="tech-tag">Google Gemini</span>
+                        <span class="tech-tag">Google Gemini API</span>
                         <span class="tech-tag">Pandas</span>
                     </div>
                     <p>
-                        Privacy-focused web app that transforms transaction data into 
-                        personalized "Money Narratives". Features mood-adaptive AI storytelling, 
-                        spending analysis, and an interactive chat assistant named Finn.
+                        A privacy-focused personal finance app that turns raw transaction data 
+                        into mood-adaptive "Money Narratives" — spending insights without 
+                        storing any sensitive user data.
                     </p>
                     <p>
-                        Built with Human-Centered AI principles following Shneiderman's 
-                        Eight Golden Rules. All data processing happens locally for privacy.
+                        Includes an LLM-powered assistant ("Finn") via the Gemini API for 
+                        contextual follow-up queries on anonymized stats. Built following 
+                        Shneiderman's Eight Golden Rules for user control and transparency.
                     </p>
                     <div class="project-stats">
                         <div class="project-stat">
@@ -1422,11 +1555,12 @@
                         <span class="tech-tag">CNN-DQN</span>
                     </div>
                     <p>
-                        Built and trained a CNN-DQN agent with dynamic simulation featuring 
-                        moving obstacles and adaptive rewards across 1 million episodes.
+                        CNN-DQN agent trained across 1 million episodes in a dynamic 
+                        simulation with moving obstacles and adaptive rewards. Achieved a 
+                        35% boost in navigation efficiency.
                     </p>
                     <p>
-                        Implemented experience replay, target networks, and hyperparameter 
+                        Uses experience replay, target networks, and hyperparameter 
                         tuning to achieve stable convergence over Q-learning baseline.
                     </p>
                     <div class="project-stats">
@@ -1505,7 +1639,7 @@
             <div class="section-label">Skills</div>
             <h2 class="section-title">Technical Expertise</h2>
             <p class="section-subtitle">
-                A versatile toolkit for building intelligent systems
+                Tools and frameworks I use regularly
             </p>
         </div>
         <div class="skills-container">
@@ -1518,6 +1652,8 @@
                 <div class="skill-chip">Computer Vision</div>
                 <div class="skill-chip">NLP</div>
                 <div class="skill-chip">CNNs</div>
+                <div class="skill-chip">OpenAI Gym</div>
+                <div class="skill-chip">OpenCV</div>
                 <div class="skill-chip">PyTorch</div>
                 <div class="skill-chip">TensorFlow</div>
                 <div class="skill-chip">Scikit-learn</div>
@@ -1526,24 +1662,36 @@
                 <div class="skill-chip">Computer Vision</div>
                 <div class="skill-chip">NLP</div>
                 <div class="skill-chip">CNNs</div>
+                <div class="skill-chip">OpenAI Gym</div>
+                <div class="skill-chip">OpenCV</div>
             </div>
             <div class="skills-row">
                 <div class="skill-chip">Python</div>
                 <div class="skill-chip">NumPy</div>
                 <div class="skill-chip">Pandas</div>
+                <div class="skill-chip">Matplotlib</div>
+                <div class="skill-chip">Seaborn</div>
                 <div class="skill-chip">Docker</div>
                 <div class="skill-chip">AWS</div>
                 <div class="skill-chip">Linux</div>
                 <div class="skill-chip">Git</div>
                 <div class="skill-chip">MongoDB</div>
+                <div class="skill-chip">MySQL</div>
+                <div class="skill-chip">Bash</div>
+                <div class="skill-chip">CI/CD</div>
                 <div class="skill-chip">Python</div>
                 <div class="skill-chip">NumPy</div>
                 <div class="skill-chip">Pandas</div>
+                <div class="skill-chip">Matplotlib</div>
+                <div class="skill-chip">Seaborn</div>
                 <div class="skill-chip">Docker</div>
                 <div class="skill-chip">AWS</div>
                 <div class="skill-chip">Linux</div>
                 <div class="skill-chip">Git</div>
                 <div class="skill-chip">MongoDB</div>
+                <div class="skill-chip">MySQL</div>
+                <div class="skill-chip">Bash</div>
+                <div class="skill-chip">CI/CD</div>
             </div>
             <div class="skill-categories reveal">
                 <div class="skill-category">
@@ -1554,9 +1702,9 @@
                     </div>
                     <h4>Machine Learning & AI</h4>
                     <p>
-                        Deep expertise in neural networks, reinforcement learning, 
-                        VAEs, RNNs, and model optimization. Experience with OpenAI Gym 
-                        and custom training environments.
+                        PyTorch, TensorFlow, Scikit-learn, OpenAI Gym. Reinforcement learning 
+                        (DQN, Q-Learning), deep learning (CNNs, VAEs, RNNs), NLP, computer vision, 
+                        and model training with feature engineering.
                     </p>
                 </div>
                 <div class="skill-category">
@@ -1567,9 +1715,9 @@
                     </div>
                     <h4>Systems & Infrastructure</h4>
                     <p>
-                        Proficient in Linux, Docker, AWS, and server configuration. 
-                        Experience with CI/CD pipelines, DevOps practices, and 
-                        scalable system architecture.
+                        Linux (Ubuntu), Windows Server, macOS. Docker, VirtualBox/VMware, 
+                        AWS, server configuration. Familiar with Agile methodology, 
+                        network protocols, and hardware troubleshooting.
                     </p>
                 </div>
                 <div class="skill-category">
@@ -1580,9 +1728,9 @@
                     </div>
                     <h4>Development & Automation</h4>
                     <p>
-                        Strong Python scripting, Bash, PowerShell automation. 
-                        Database management with MongoDB, MySQL. Version control 
-                        with Git and collaborative workflows.
+                        Git, GitHub, Bash, PowerShell, Python scripting. CI/CD pipelines, 
+                        DevOps workflows. Database work with MongoDB and MySQL. 
+                        Cloud deployment on AWS.
                     </p>
                 </div>
             </div>
@@ -1592,10 +1740,10 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-content reveal">
-            <h2>Let's Build Something Amazing</h2>
+            <h2>Let's Talk</h2>
             <p>
-                I'm always excited to discuss new opportunities, collaborations, 
-                or just chat about the latest in AI and machine learning.
+                Open to full-time roles, research collaborations, or interesting 
+                conversations about ML and AI engineering.
             </p>
             <div class="contact-links">
                 <a href="mailto:joshjestine@outlook.com" class="contact-link">
@@ -1616,29 +1764,16 @@
                     </svg>
                     GitHub
                 </a>
-                <a href="tel:+18575767579" class="contact-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                    </svg>
-                    Call Me
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Josh Jestine. Designed with precision and passion.</p>
+        <p>© 2026 Josh Jestine.</p>
     </footer>
 
     <script>
-        // Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1500);
-        });
-
         // Custom Cursor
         const cursor = document.getElementById('cursor');
         let mouseX = 0, mouseY = 0;
@@ -1699,16 +1834,6 @@
                     behavior: 'smooth',
                     block: 'start'
                 });
-            });
-        });
-
-        // Parallax effect for floating shapes
-        const shapes = document.querySelectorAll('.shape');
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            shapes.forEach((shape, index) => {
-                const speed = 0.1 + index * 0.05;
-                shape.style.transform = `translateY(${scrollY * speed}px)`;
             });
         });
 
@@ -1790,11 +1915,6 @@
         }, { threshold: 0.5 });
 
         statNumbers.forEach(stat => statObserver.observe(stat));
-
-        // Hide cursor on mobile
-        if ('ontouchstart' in window) {
-            cursor.style.display = 'none';
-        }
     </script>
 </body>
 </html>
